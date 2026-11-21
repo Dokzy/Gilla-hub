@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b13">
+  <meta name="description" content="GillaHub – magyar Gilla VR közösség. Chat, barátok és közös játék.">
+  <title>GillaHub – Magyar Gilla VR közösség</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="ambient"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><img src="./assets/logo.svg" alt=""><span>GILLA<span class="accent">HUB</span></span></a>
+    <nav><a href="#home" data-page="home" class="active">Kezdőlap</a><a href="#chat" data-page="chat">Élő chat</a><a href="#lobbies" data-page="lobbies">Lobbik</a><a href="#community" data-page="community">Közösség</a></nav>
+    <div class="account" id="accountArea"><button class="btn btn-outline" id="openAuth">Bejelentkezés</button></div>
+    <button class="mobile-menu" id="menuToggle" aria-label="Menü">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> MAGYAR GILLA VR KÖZÖSSÉG</div>
+        <h1>Találd meg a<br><span class="gradient">csapattársad.</span></h1>
+        <p>Beszélgess magyar játékosokkal, keress társakat, és szervezz közös Gilla VR meccseket.</p>
+        <div class="hero-actions"><button class="btn btn-primary" id="heroJoin">Csatlakozom <span>↗</span></button><a class="btn btn-ghost" href="#lobbies">Lobbik böngészése</a></div>
+        <div class="hero-stats"><div><b>HU</b><small>Magyar közösség</small></div><div><b>LIVE</b><small>Valós idejű chat</small></div><div><b>VR</b><small>Játékostárs-kereső</small></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-card"><div class="card-top"><span class="live-dot"></span> KÖZÖSSÉGI KÖZPONT <span class="tiny-tag">HU</span></div>
+          <div class="avatar-stack"><div class="avatar av1">G</div><div class="avatar av2">V</div><div class="avatar av3">✦</div></div>
+          <h3>Játsszunk együtt!</h3><p>Találj magyar játékosokat és szervezzetek közös partit.</p>
+          <div class="fake-lobby"><span class="lobby-icon">◈</span><div><b>Esti chill lobby</b><small>Nyitott csatlakozás</small></div><span class="online-label">NYITOTT</span></div>
+        </div>
+        <div class="float-chip chip-a">✦ Magyar játékosok</div><div class="float-chip chip-b">● Közösségi chat</div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-head"><div><div class="eyebrow">MINDEN EGY HELYEN</div><h2>A közösség <span class="gradient">összehoz.</span></h2></div><p>Nem kell egyedül keresgélned – találd meg a következő csapatodat.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><div class="feature-icon">⌁</div><h3>Élő chat</h3><p>Beszélgess a közösséggel valós időben.</p></article>
+        <article class="feature"><div class="feature-icon">♧</div><h3>Barátok</h3><p>Küldj és fogadj barátkérelmeket, építs saját listát.</p></article>
+        <article class="feature"><div class="feature-icon">◈</div><h3>Lobbikérő</h3><p>Hozz létre lobbyt, vagy kérj meghívót egy játékostól.</p></article>
+        <article class="feature"><div class="feature-icon">◎</div><h3>Játékosprofil</h3><p>Állíts be becenevet, avatart és rövid bemutatkozást.</p></article>
+      </div>
+    </section>
+
+    <section class="section app-section" id="chat">
+      <div class="section-head"><div><div class="eyebrow">KÖZÖSSÉGI TÉR</div><h2>Magyar chat<span class="gradient">.</span></h2></div><span class="status-pill"><i></i> Valós idejű</span></div>
+      <div class="app-panel">
+        <aside class="side-tabs"><button class="tab active" data-tab="global"># Általános</button><button class="tab" data-tab="lobbies">◈ Lobbik</button><button class="tab" data-tab="friends">♧ Barátok</button><div class="side-note">Lépj be, hogy írni tudj a chatbe.</div></aside>
+        <div class="chat-main"><div class="chat-title"><div><b id="chatTitle"># általános</b><small>Magyar közösségi beszélgetés</small></div><span class="status-pill"><i></i> ONLINE CHAT</span></div>
+          <div class="messages" id="messages"><div class="empty-state"><div class="empty-symbol">⌁</div><b>Még nincs beszélgetés</b><p>Jelentkezz be, és indítsd el a közösségi chatet!</p></div></div>
+          <form class="message-form" id="messageForm"><input id="messageInput" maxlength="500" placeholder="Írj egy üzenetet..." autocomplete="off" disabled><button class="send-btn" disabled aria-label="Küldés">➤</button></form>
+          <div class="safety-hint">Ne ossz meg címet, telefonszámot vagy más személyes adatot.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lobbies">
+      <div class="section-head"><div><div class="eyebrow">CSAPATKERESŐ</div><h2>Keress egy <span class="gradient">lobbyt.</span></h2></div><button class="btn btn-primary" id="createLobby">＋ Lobby létrehozása</button></div>
+      <div class="lobby-tools"><input id="lobbySearch" placeholder="Keresés lobby neve alapján..."><select id="lobbyFilter"><option value="all">Minden lobby</option><option value="open">Csatlakozható</option></select></div>
+      <div class="lobby-grid" id="lobbyList"><div class="empty-card">A lobbyk betöltése bejelentkezés után lehetséges.</div></div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="section-head"><div><div class="eyebrow">KÖZÖSSÉGI FAL</div><h2>Mi történik <span class="gradient">nálunk?</span></h2></div><button class="btn btn-outline" id="newPost">＋ Új poszt</button></div>
+      <div class="community-grid"><div class="post-list" id="postList"><div class="empty-card">Még nincsenek posztok. Legyél te az első!</div></div>
+        <aside class="community-aside"><div class="aside-card"><div class="eyebrow">KÖZÖSSÉGI SZABÁLYOK</div><h3>Legyen jó a hangulat!</h3><ul><li>Légy tiszteletteljes másokkal.</li><li>Ne zaklass és ne fenyegetőzz.</li><li>Ne ossz meg személyes adatokat.</li><li>Jelentsd a problémás tartalmakat.</li></ul></div><div class="aside-card mini"><span>✦</span><b>Magyar játékosoknak, magyarul.</b><small>Rajtatok múlik, milyen közösséget építünk.</small></div></aside>
+      </div>
+    </section>
+  </main>
+  <footer><a class="brand" href="#"><img src="./assets/logo.svg" alt=""><span>GILLA<span class="accent">HUB</span></span></a><small>Nem hivatalos rajongói közösségi oldal. Nem áll kapcsolatban a Gilla játék fejlesztőivel.</small><span>© 2026 GillaHub</span></footer>
+
+  <div class="modal-backdrop" id="authModal"><div class="modal"><button class="modal-close" data-close>×</button><div class="eyebrow">ÜDV A KÖZÖSSÉGBEN</div><h2>Csatlakozz a <span class="gradient">GillaHubhoz.</span></h2><p class="muted">Használd a Google-fiókodat vagy az e-mail-címedet.</p><button class="btn google-btn" id="googleLogin"><b>G</b> Folytatás Google-fiókkal</button><div class="or"><span>VAGY E-MAILLEL</span></div><form id="authForm"><label>E-mail-cím<input type="email" id="authEmail" required placeholder="nev@email.com"></label><label>Jelszó<input type="password" id="authPassword" minlength="6" required placeholder="Legalább 6 karakter"></label><div class="auth-actions"><button class="btn btn-primary" type="submit" id="emailSignup">Regisztráció</button><button class="btn btn-ghost" type="button" id="emailLogin">Belépés</button></div></form><small class="muted">A regisztrációhoz olvasd el az adatvédelmi és közösségi szabályokat. Ne használj más által is ismert jelszót.</small></div></div>
+
+  <div class="modal-backdrop" id="profileModal"><div class="modal"><button class="modal-close" data-close>×</button><div class="eyebrow">JÁTÉKOS PROFIL</div><h2>Állítsd be a profilod</h2><form id="profileForm"><label>Megjelenített név<input id="profileName" maxlength="24" required placeholder="VR becenév"></label><label>Gilla VR játékosnév (opcionális)<input id="gameName" maxlength="32" placeholder="Játékbeli név"></label><label>Rövid bemutatkozás<textarea id="profileBio" maxlength="160" placeholder="Milyen játékokat szeretsz?"></textarea></label><button class="btn btn-primary" type="submit">Mentés</button></form></div></div>
+
+  <div class="modal-backdrop" id="lobbyModal"><div class="modal"><button class="modal-close" data-close>×</button><div class="eyebrow">CSAPATKERESŐ</div><h2>Új lobby</h2><form id="lobbyForm"><label>Lobby neve<input id="lobbyName" maxlength="40" required placeholder="Pl. Esti játék"></label><label>Rövid leírás<input id="lobbyDesc" maxlength="120" placeholder="Chill, gyakorlás, közös játék..."></label><label>Hány főt vársz?<select id="lobbySize"><option>2</option><option selected>4</option><option>6</option><option>8</option></select></label><button class="btn btn-primary" type="submit">Lobby közzététele</button></form></div></div>
+
+  <div class="modal-backdrop" id="postModal"><div class="modal"><button class="modal-close" data-close>×</button><div class="eyebrow">KÖZÖSSÉGI FAL</div><h2>Új bejegyzés</h2><form id="postForm"><label>Cím<input id="postTitle" maxlength="70" required placeholder="Miről szól a poszt?"></label><label>Üzenet<textarea id="postBody" maxlength="1000" required placeholder="Írd le, amit megosztanál..."></textarea></label><button class="btn btn-primary" type="submit">Közzététel</button></form></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./config.js"></script><script src="./app.js"></script>
+</body>
+</html>
