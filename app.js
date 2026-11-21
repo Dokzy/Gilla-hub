@@ -91,7 +91,23 @@
       month: "short",
       day: "numeric"
     });
+function rankBadges(p) {
+  let badges = "";
 
+  if (p?.role === "owner") {
+    badges += '<span class="rank-badge owner">👑 OWNER</span>';
+  }
+
+  if (p?.role === "moderator") {
+    badges += '<span class="rank-badge moderator">🛡️ MOD</span>';
+  }
+
+  if (p?.is_og) {
+    badges += '<span class="rank-badge og">⭐ OG</span>';
+  }
+
+  return badges;
+}
   async function loadProfile() {
     if (!client || !user) return;
 
