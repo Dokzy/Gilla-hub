@@ -1,7 +1,7 @@
 {
   "name": "GillaHub – Magyar Gilla VR közösség",
   "short_name": "GillaHub",
-  "start_url": "./",
+  "start_url": "https://github.com/Dokzy/Gilla-hub/settings/pages",
   "display": "standalone",
   "background_color": "#090b13",
   "theme_color": "#090b13",
